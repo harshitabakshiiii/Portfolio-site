@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Details - US Superstore Sales Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style type="text/tailwindcss">
+:root {
+    --primary-red: #000749;
+    --cream-bg: #FDFBF8;
+    --dark-text: #1B1B1B;
+    --paper-texture-url: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2c2c2c;
+    --dark-text-primary: #f0f0f0;
+    --dark-text-secondary: #a0a0a0;
+}
+html.dark {
+    --cream-bg: var(--dark-bg);
+    --dark-text: var(--dark-text-primary);
+}
+        body {
+            background-color: var(--cream-bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-image: var(--paper-texture-url);
+            transition: background-color 0.5s ease;
+        }
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+        .paper-layer {
+            background-color: white;
+            box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.08);
+            position: relative;
+            background-image: var(--paper-texture-url);
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        html.dark .paper-layer {
+            background-color: var(--dark-surface);
+            box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+            background-color: rgba(44, 44, 44, 0.8);
+        }
+        .red-accent-bg {
+            background-color: var(--primary-red);
+        }
+        .doodle-icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 1.5rem;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            color: var(--primary-red);
+            opacity: 0.8;
+        }
+.dark .bg-white {
+    background-color: var(--dark-surface) !important;
+}
+.dark .text-\[var\(--dark-text\)\] {
+    color: var(--dark-text-primary);
+}
+.dark .text-black {
+    color: var(--dark-text-primary);
+}
+.dark .text-gray-800 {
+   color: var(--dark-text-primary);
+}
+.dark .text-gray-700 {
+    color: var(--dark-text-secondary);
+}
+.dark .text-gray-600 {
+    color: #d1d5db;
+}
+.dark .border-black\/10 {
+    border-color: rgba(255,255,255,0.1);
+}
+.dark .border-gray-200 {
+    border-color: rgba(255,255,255,0.15);
+}
+.dark .bg-gray-50 {
+    background-color: rgba(255,255,255,0.05);
+}
+/* Light mode text visibility */
+.text-gray-800 {
+    color: #1f2937 !important;
+}
+.text-gray-700 {
+    color: #374151 !important;
+}
+.text-gray-600 {
+    color: #4b5563 !important;
+}
+.dark .text-gray-800 {
+    color: var(--dark-text-primary) !important;
+}
+.dark .text-gray-700 {
+    color: var(--dark-text-secondary) !important;
+}
+.dark .text-gray-600 {
+    color: #d1d5db !important;
+}
+</style>
+</head>
+
+<body class="antialiased">
+<div class="bg-[var(--cream-bg)] min-h-screen relative overflow-hidden">
+
+<div class="absolute inset-0 w-full h-[60vh] bg-[var(--primary-red)] transform -skew-y-6 origin-top-left z-0"></div>
+
+<header class="absolute top-0 left-0 right-0 z-50 flex justify-between items-center py-6 px-6 md:px-12">
+<a class="font-serif font-extrabold text-4xl text-white" href="Code2.html">HB.</a>
+
+<button class="relative w-12 h-6 rounded-full bg-black/20 dark:bg-gray-700 transition-colors duration-300 focus:outline-none" id="theme-toggle">
+<span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 transform dark:translate-x-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-gray-800 dark:text-gray-300 transition-opacity duration-300 opacity-100 dark:opacity-0">light_mode</span>
+<span class="material-symbols-outlined text-xs text-gray-800 dark:text-gray-300 absolute transition-opacity duration-300 opacity-0 dark:opacity-100">dark_mode</span>
+</span>
+</button>
+</header>
+
+<main class="relative z-10 pt-32 pb-24 px-4 md:px-8">
+<div class="max-w-5xl mx-auto">
+
+<div class="text-center mb-16">
+<h1 class="font-serif text-5xl md:text-7xl font-extrabold text-white leading-tight">
+US Superstore <br/><em class="italic">Sales Dashboard</em>
+</h1>
+<p class="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+Tracking sales performance, profitability, and discount impact across categories.
+</p>
+</div>
+
+<div class="paper-layer p-8 md:p-12 lg:p-16 transform -rotate-1">
+<div class="transform rotate-1">
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+<div class="lg:col-span-2">
+<h2 class="font-serif text-3xl font-bold text-[var(--dark-text)] mb-6 border-b-2 border-[var(--primary-red)] pb-2">
+Project Overview
+</h2>
+
+<div class="prose prose-lg dark:prose-invert max-w-none text-gray-800 dark:text-gray-300 space-y-4">
+<p>Key Business Insight: Discount-driven sales growth does not always translate into higher profitability, emphasizing the need for margin-focused strategies.</p>
+<p>This project provides an end-to-end analysis of US Superstore sales data, focusing on orders, profit, discounts, and category performance.</p>
+<p>The objective was to uncover sales drivers, identify loss-making segments, and improve strategic decision-making through visual storytelling.</p>
+<blockquote class="border-l-4 border-[var(--primary-red)] pl-4 italic text-gray-600 dark:text-gray-400">
+"The dashboard enables stakeholders to monitor KPIs and evaluate performance across regions and product categories."
+</blockquote>
+</div>
+</div>
+
+<div class="lg:col-span-1">
+<div class="bg-gray-50 dark:bg-black/20 p-6 -rotate-2 transform">
+<div class="rotate-2">
+<h3 class="font-serif text-2xl font-bold text-[var(--dark-text)] mb-4">Project Details</h3>
+
+<ul class="space-y-3 text-gray-700 dark:text-gray-300">
+<li class="flex items-start">
+<span class="material-symbols-outlined text-[var(--primary-red)] mr-2 mt-1">person</span>
+<div><strong>Role:</strong> Data Analyst</div>
+</li>
+
+<li class="flex items-start">
+<span class="material-symbols-outlined text-[var(--primary-red)] mr-2 mt-1">calendar_month</span>
+<div><strong>Date:</strong> 2026</div>
+</li>
+
+<li class="flex items-start">
+<span class="material-symbols-outlined text-[var(--primary-red)] mr-2 mt-1">construction</span>
+<div><strong>Tools:</strong> Power BI, Excel</div>
+</li>
+
+<li class="flex items-start">
+<span class="material-symbols-outlined text-[var(--primary-red)] mr-2 mt-1">bar_chart_4_bars</span>
+<div><strong>Techniques:</strong> Sales Analysis, KPI Tracking, Data Storytelling</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="mt-16">
+<h2 class="font-serif text-3xl font-bold text-center text-[var(--dark-text)] mb-8">Key Visualizations</h2>
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-48 h-48 border-4 border-dashed border-black/10 transform -rotate-12 -z-10"></div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="paper-layer p-4 transform rotate-2 shadow-lg">
+<img alt="Netflix Genre Distribution" class="w-full h-auto object-cover" src="images/US_Superstore_Sales_Dashboard.png"/>
+<p class="text-center mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">Sales & Profit by Category</p>
+</div>
+
+<div class="paper-layer p-4 transform -rotate-1 shadow-lg md:mt-8">
+<img alt="Netflix Content Trends Over Time" class="w-full h-auto object-cover" src="images/US_Superstore_Sales_Dashboard.png"/>
+<p class="text-center mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">Discount Impact Analysis</p>
+</div>
+</div>
+<span class="doodle-icon absolute -bottom-8 right-0 rotate-12 text-black/20 dark:text-white/20" style="font-size: 4rem;">movie</span>
+</div>
+</div>
+
+<div class="mt-20 border-t border-gray-200 dark:border-white/10 pt-10 flex flex-col sm:flex-row justify-between items-center gap-8">
+
+<a class="group flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-[var(--dark-text)] dark:hover:text-white transition-colors duration-300" href="Amazon_Sales_Performance.html">
+<span class="material-symbols-outlined text-3xl group-hover:text-[var(--primary-red)] transition-colors duration-300">arrow_back</span>
+<div>
+<span class="text-sm uppercase tracking-wider">Previous Project</span>
+<p class="font-serif text-lg font-bold text-[var(--dark-text)] dark:text-white">Amazon Sales Performance Dashboard</p>
+</div>
+</a>
+
+<a class="inline-block red-accent-bg text-white font-semibold text-base px-8 py-3 hover:bg-[var(--dark-text)] transition-all duration-300 transform hover:scale-105 rounded-sm shadow-lg" href="index.html#projects">
+                            Back to Projects
+                        </a>
+
+<a class="group flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-[var(--dark-text)] dark:hover:text-white transition-colors duration-300 text-right" href="Olist_Sales_Forecast.html">
+<div>
+<span class="text-sm uppercase tracking-wider">Next Project</span>
+<p class="font-serif text-lg font-bold text-[var(--dark-text)] dark:text-white">Olist Sales Forecast</p>
+</div>
+<span class="material-symbols-outlined text-3xl group-hover:text-[var(--primary-red)] transition-colors duration-300">arrow_forward</span>
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+</main>
+
+<footer class="relative z-20 bg-transparent text-center py-10 px-4">
+<p class="text-gray-600 dark:text-gray-400">© 2026 Harshita Bakshi. A Story in Every Datum.</p>
+</footer>
+</div>
+
+<script>
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+    // Function to apply theme
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            htmlEl.classList.add('dark');
+            htmlEl.classList.remove('light');
+        } else {
+            htmlEl.classList.add('light');
+            htmlEl.classList.remove('dark');
+        }
+    }
+    // Check localStorage on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light');
+    }
+    // Toggle listener
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+</script>
+
+</body>
+</html>

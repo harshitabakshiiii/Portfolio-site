@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Harshita - Data Analyst & Storyteller</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-red: #000749; 
+            --cream-bg: #FDFBF8;
+            --dark-text: #1B1B1B;
+            --paper-texture-url: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+            --dark-bg: #121212;
+            --dark-surface: #1E1E1E;
+            --dark-text-primary: #f0f0f0;
+            --dark-text-secondary: #a0a0a0;
+        }
+        html.dark {
+            --cream-bg: var(--dark-bg);
+            --dark-text: var(--dark-text-primary);
+        }
+        body {
+            background-color: var(--cream-bg);
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-image: var(--paper-texture-url);
+            transition: background-color 0.5s ease;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .paper-layer {
+            background-color: white;
+            box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.08);
+            position: relative;
+            background-image: var(--paper-texture-url);
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        html.dark .paper-layer {
+            background-color: var(--dark-surface);
+            box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+            background-color: rgba(30, 30, 30, 0.8);
+        }
+        .paper-layer::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 1px dashed rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+        html.dark .paper-layer::before {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .red-accent-bg {
+            background-color: var(--primary-red);
+        }
+        .diagonal-section {
+            clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+        }
+        .menu-link {
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 600;
+        }
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-red);
+            transition: all 0.3s ease-out;
+        }
+        .menu-link:hover::after {
+            width: 100%;
+        }
+        .doodle-icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 1.5rem;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            color: var(--primary-red);
+            opacity: 0.8;
+        }
+        .image-frame {
+            position: relative;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s ease;
+        }
+        html.dark .image-frame {
+            background-color: var(--dark-surface);
+        }
+        .image-frame-inner {
+            position: relative;
+            overflow: hidden;
+            background-color: #e2e8f0;
+        }
+        html.dark .image-frame-inner {
+            background-color: #4a5568;
+        }
+        .image-cutout {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+        .dark .bg-white {
+            background-color: var(--dark-surface) !important;
+        }
+        .dark .bg-\[var\(--cream-bg\)\] {
+            background-color: var(--dark-bg) !important;
+        }
+        .dark .text-\[var\(--dark-text\)\] {
+            color: var(--dark-text-primary);
+        }
+        .dark .text-black {
+            color: var(--dark-text-primary);
+        }
+        .dark .text-gray-700 {
+            color: var(--dark-text-secondary);
+        }
+        .dark .text-gray-500 {
+            color: #9ca3af;
+        }
+        .dark .text-gray-600 {
+            color: #d1d5db;
+        }
+        .dark .border-black\/5 {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        .dark .hover\:bg-\[var\(--dark-text\)\]:hover {
+            background-color: #f0f0f0;
+            color: #1B1B1B;
+        }
+        .dark .shadow-2xl {
+             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .dark .doodle-icon.text-black\/50 {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes fadeInLine {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideStory {
+            from { transform: translateX(0); }
+            to { transform: translateX(60px); }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(10px) skewY(-6deg); }
+            to { transform: translateY(0) skewY(-6deg); }
+        }
+        
+        .hero-line-1 {
+            animation: fadeInLine 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0;
+        }
+        
+        .hero-line-2 {
+            animation: fadeInLine 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .hero-story {
+            animation: slideStory 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards;
+            display: inline-block;
+        }
+        
+        .hero-bg {
+            animation: slideUp 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        
+        @keyframes filmRoll {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes playButton {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        @keyframes filmStrip {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 0; }
+        }
+        
+        .film-roll {
+            animation: filmRoll 4s ease-in-out infinite;
+        }
+        
+        .play-button {
+            animation: playButton 2s ease-in-out infinite;
+        }
+        
+        .film-strip-bg {
+            background-image: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(73, 0, 24, 0.1) 10px,
+                rgba(73, 0, 24, 0.1) 20px
+            );
+            animation: filmStrip 20s linear infinite;
+        }
+        
+        .video-timer::before {
+            content: "REC";
+            color: red;
+            font-family: monospace;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 0.8rem;
+            animation: blink 1s infinite;
+        }
+        
+        .film-strip-container {
+            background: var(--primary-red);
+            position: relative;
+            padding: 60px 0;
+            overflow: hidden;
+        }
+        
+        .film-strip-container::before,
+        .film-strip-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 8px,
+                #ffffff 8px,
+                #ffffff 16px
+            );
+            opacity: 0.9;
+            z-index: 5;
+        }
+        
+        .film-strip-container::before {
+            left: 0;
+            border-right: 2px solid #ffffff;
+        }
+        
+        .film-strip-container::after {
+            right: 0;
+            border-left: 2px solid #ffffff;
+        }
+        
+        .film-perforations {
+            position: absolute;
+            left: 60px;
+            right: 60px;
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 15px,
+                #ffffff 15px,
+                #ffffff 20px
+            );
+            opacity: 1;
+            z-index: 25;
+        }
+        
+        .film-perforations-bottom {
+            top: auto;
+            bottom: 0;
+        }
+        
+        .film-card {
+            background: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.1),
+                0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            margin: 0 20px 0 20px;
+            z-index: 15;
+        }
+        
+        .film-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.15),
+                0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .film-card::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0.3;
+        }
+        
+        .film-card::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0.3;
+        }
+        
+        .film-number {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: #ffffff;
+            color: var(--primary-red);
+            padding: 2px 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.55rem;
+            font-weight: bold;
+            z-index: 20;
+        }
+        
+        @keyframes filmProject {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.01) rotate(0.2deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        
+        .film-card:hover {
+            animation: filmProject 0.3s ease-in-out;
+        }
+</style>
+</head>
+<body class="antialiased">
+<div class="max-w-7xl mx-auto relative bg-white dark:bg-[var(--dark-surface)] shadow-2xl overflow-hidden">
+<header class="absolute top-0 left-0 right-0 z-50 flex justify-between items-center py-6 px-6 md:px-12">
+<a class="font-serif font-extrabold text-4xl text-white dark:text-white" href="#hero">H.B</a>
+<div class="flex items-center space-x-6">
+<nav class="hidden md:flex items-center space-x-10 text-sm">
+<a class="menu-link text-white dark:text-white" href="#about">About</a>
+<a class="menu-link text-white dark:text-white" href="#projects">Projects</a>
+<a class="menu-link text-white dark:text-white" href="#skills">Skills</a>
+<a class="menu-link text-white dark:text-white" href="#contact">Collaborate</a>
+</nav>
+<button class="relative w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none" id="theme-toggle">
+<span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 transform dark:translate-x-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-gray-800 dark:text-gray-300 transition-opacity duration-300 opacity-100 dark:opacity-0">light_mode</span>
+<span class="material-symbols-outlined text-xs text-gray-800 dark:text-gray-300 absolute transition-opacity duration-300 opacity-0 dark:opacity-100">dark_mode</span>
+</span>
+</button>
+<button class="md:hidden z-[100]" id="menu-btn">
+<span class="material-symbols-outlined text-4xl text-[var(--dark-text)]">menu</span>
+</button>
+</div>
+</header>
+<main>
+<section class="relative min-h-screen flex items-center bg-[var(--cream-bg)] overflow-hidden" id="hero">
+<div class="absolute inset-0 w-full h-full bg-[var(--primary-red)] transform -skew-y-6 origin-top-left z-0 hero-bg"></div>
+<div class="relative w-full grid md:grid-cols-5 items-center gap-12 px-6 md:px-12 py-24 md:py-32">
+<div class="md:col-span-3 z-10 text-center md:text-left">
+<p class="font-semibold text-white/80 tracking-widest uppercase mb-4 text-sm hero-line-1">Harshita Bakshi — Data Analyst & Data Storyteller</p>
+<h1 class="font-serif text-6xl md:text-8xl lg:text-9xl font-extrabold leading-none text-white">
+                            <span class="hero-line-1">Turning Data </span><em class="italic hero-story">into</em><br/><span class="hero-line-2"> Decisions.</span>
+                        </h1>
+<p class="mt-8 max-w-lg mx-auto md:mx-0 text-white/90 text-lg leading-relaxed hero-line-2">
+                            I transform complex datasets into compelling, clear, and creative narratives that drive insightful decisions.
+                        </p>
+</div>
+<div class="md:col-span-2 relative w-full max-w-sm mx-auto md:max-w-none z-10">
+<div class="absolute -top-4 -left-4 z-0">
+<span class="doodle-icon" style="font-size: 3rem; transform: rotate(-15deg);">bar_chart</span>
+</div>
+<div class="absolute -bottom-6 -right-6 z-20 bg-white dark:bg-[var(--dark-surface)] p-3 shadow-lg transform -rotate-6">
+<p class="font-serif text-xl font-bold text-center text-black dark:text-white">Insight & Impact</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-32 bg-[var(--cream-bg)] relative overflow-hidden" id="about">
+<div class="absolute top-0 right-0 w-3/5 h-full bg-white -skew-x-12 origin-top-right paper-layer"></div>
+<div class="px-6 md:px-12 relative z-10">
+<div class="grid md:grid-cols-2 gap-12 md:gap-24 items-center max-w-6xl mx-auto">
+<div class="text-left relative">
+<span class="doodle-icon absolute -top-12 -left-8 transform -rotate-12 opacity-50" style="font-size: 4rem;">edit_note</span>
+<h2 class="font-serif text-5xl md:text-6xl mb-6 font-bold text-[var(--dark-text)]">Hello, I'm <em class="italic text-[var(--primary-red)] dark:text-white">Harshita</em>.</h2>
+<div class="space-y-5 text-base md:text-lg text-gray-700 leading-relaxed">
+<p>
+                                    I believe that behind every dataset, there's a story waiting to be told. My passion lies in bridging the gap between raw numbers and human insight. I'm a meticulous data analyst with a creative soul, dedicated to uncovering patterns and crafting visualizations that not only inform but also inspire.
+                                </p>
+<p>
+                                    My journey started with a fascination for statistics and evolved into a love for visual storytelling. I thrive on the challenge of making data accessible, beautiful, and actionable for everyone.
+                                </p>
+<p>
+                                    With a background in Computer Applications and expertise in Python, Power BI, SQL, and Excel, I specialize in transforming complex datasets into actionable business insights. I'm currently seeking remote-friendly data analyst roles where I can apply my analytical skills and storytelling abilities to drive data-driven decision making.
+                                </p>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+<div class="absolute -inset-4 border-2 border-[var(--primary-red)] opacity-30 transform rotate-6 rounded-md"></div>
+<div class="paper-layer p-2 transform -rotate-3">
+<img alt="Professional portrait of Harshita" class="w-full max-w-xs" src="20250411_194829.jpg"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-[var(--primary-red)] w-24 h-24 rounded-full flex items-center justify-center text-white transform rotate-12">
+<span class="doodle-icon text-white" style="font-size: 3rem;">auto_stories</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-[var(--cream-bg)] relative overflow-hidden" id="education">
+<div class="absolute top-0 left-0 w-3/5 h-full bg-white skew-x-12 origin-top-left paper-layer"></div>
+<div class="px-6 md:px-12 relative z-10">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<span class="doodle-icon text-4xl mb-4">school</span>
+<h2 class="font-serif text-5xl md:text-6xl font-bold mb-4 text-[var(--dark-text)]">Education</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">My academic foundation and educational journey.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div class="paper-layer p-8 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-start space-x-4">
+<span class="doodle-icon text-3xl text-[var(--primary-red)]">school</span>
+<div>
+<h3 class="font-bold text-xl mb-2 text-[var(--dark-text)]">Bachelor of Computer Applications</h3>
+<p class="text-gray-600 mb-2">Disha College, Raipur • 2022-2025</p>
+<p class="text-gray-700 mb-3">CGPA: Graduated with Grade A</p>
+<p class="text-gray-700">Specialized in Computer Applications, Data Analytics and Information Systems with focus on statistical analysis, database management, and machine learning fundamentals. Core coursework included Data Structures, Database Systems, Statistics, and Business Analytics.</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Data Structures</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Database Systems</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Statistics</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Business Analytics</span>
+</div>
+</div>
+</div>
+</div>
+<div class="paper-layer p-8 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-start space-x-4">
+<span class="doodle-icon text-3xl text-[var(--primary-red)]">menu_book</span>
+<div>
+<h3 class="font-bold text-xl mb-2 text-[var(--dark-text)]">Higher Secondary Education</h3>
+<p class="text-gray-600 mb-2">Adarsh Vidyalaya, Raipur • 2021-2022</p>
+<p class="text-gray-700 mb-3">Secured First Division</p>
+<p class="text-gray-700">Completed with distinction in Commerce stream. Developed strong foundation in logical reasoning and problem-solving skills.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-white relative overflow-hidden" id="certifications">
+<div class="absolute top-0 right-0 w-3/5 h-full bg-[var(--cream-bg)] -skew-x-12 origin-top-right paper-layer"></div>
+<div class="px-6 md:px-12 relative z-10">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-16">
+<span class="doodle-icon text-4xl mb-4">workspace_premium</span>
+<h2 class="font-serif text-5xl md:text-6xl font-bold mb-4 text-[var(--dark-text)]">Professional <em class="italic text-[var(--primary-red)]">Certifications</em></h2>
+<div class="absolute -top-6 -right-8 opacity-30">
+<span class="doodle-icon" style="font-size: 2rem; color: var(--primary-red);">verified</span>
+</div>
+<p class="text-gray-600 max-w-2xl mx-auto">Industry-recognized certifications validating my technical expertise.</p>
+</div>
+<div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="paper-layer p-8 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-start space-x-4">
+<span class="doodle-icon text-3xl text-[var(--primary-red)]">workspace_premium</span>
+<div>
+<h3 class="font-bold text-xl mb-2 text-[var(--dark-text)]">CEC Certification Course on Applied Data Analytics: A Practical Approach</h3>
+<p class="text-gray-600 mb-2">NIT Raipur • 2024</p>
+<p class="text-gray-700">Specialized training in data science fundamentals, machine learning, and Python programming. Completed capstone project on customer segmentation analysis.</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Data Analysis</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Machine learning</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Python</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Tableau</span>
+</div>
+</div>
+</div>
+</div>
+<div class="paper-layer p-8 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-start space-x-4">
+<span class="doodle-icon text-3xl text-[var(--primary-red)]">military_tech</span>
+<div>
+<h3 class="font-bold text-xl mb-2 text-[var(--dark-text)]">Deloitte Data Analytics Job Simulation Certificate</h3>
+<p class="text-gray-600 mb-2">Forage • 2025</p>
+<p class="text-gray-700">A comprehensive program covering data analysis, data cleaning, data visualization, and Machine Learning. Completed hands-on projects using real-world datasets.</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Tableau</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Data Cleaning</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Data Visualization</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Statistical Analysis</span>
+</div>
+</div>
+</div>
+</div>
+<div class="paper-layer p-8 transform hover:-translate-y-2 transition-transform duration-300">
+<div class="flex items-start space-x-4">
+<span class="doodle-icon text-3xl text-[var(--primary-red)]">verified</span>
+<div>
+<h3 class="font-bold text-xl mb-2 text-[var(--dark-text)]">Power BI:For Beginners</h3>
+<p class="text-gray-600 mb-2">Simplilearn • 2025</p>
+<p class="text-gray-700">Professional certification validating expertise in Power BI desktop, data modeling, DAX, and creating interactive dashboards. Passed PL-300 exam with distinction.</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Power BI</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">DAX</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Data Modeling</span>
+<span class="bg-[var(--cream-bg)] px-3 py-1 rounded-full text-sm text-[var(--dark-text)]">Dashboard Design</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 red-accent-bg text-white diagonal-section" id="projects">
+<div class="px-6 md:px-12 relative z-10">
+<div class="text-center mb-12 relative">
+<h3 class="font-serif text-5xl md:text-6xl font-bold relative z-10">Data <em class="italic">Stories</em></h3>
+<p class="font-semibold text-lg mt-2 text-white/60 uppercase tracking-widest">Selected Works</p>
+<span class="doodle-icon absolute -top-8 left-1/4 -rotate-6 opacity-30" style="font-size: 3rem;">folder_open</span>
+<div class="flex justify-center items-center mt-4 space-x-2">
+<span class="text-white/50 text-sm animate-pulse">Swipe to explore</span>
+<span class="material-symbols-outlined text-white/60 animate-bounce" style="animation-duration: 1.5s;">arrow_forward</span>
+</div>
+</div>
+<div class="relative">
+<div class="overflow-x-auto overflow-y-hidden scrollbar-hide" style="scroll-snap-type: x mandatory;" id="projects-scroll-container">
+<div class="flex flex-row gap-8" style="min-width: max-content;" id="projects-scroll-wrapper">
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+  <a class="block" href="Amazon_Sales_Performance.html">
+    <div class="p-5">
+      <div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="Data dashboard for e-commerce trends" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/Amazon_Sales_Dashboard.png"/>
+      </div>
+      <h3 class="font-serif text-2xl font-bold mb-2 text-white">Amazon Sales Performance Dashboard</h3>
+      <p class="text-sm mb-4 text-white/70 font-light">Identified profit-driving segments and optimized pricing strategies through regional sales analysis.</p>
+      <p class="text-xs mb-4 text-white/60 font-medium">Tools: Power BI, Excel, DAX</p>
+      <a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="Amazon_Sales_Performance.html">View Story →</a>
+    </div>
+  </a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+    <a class="block" href="Netflix_Content_Trends.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="Netflix content analysis dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/Netflix_trends_dashboard.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">Netflix Content Trends Dashboard</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Revealed genre diversification strategies that drive content acquisition and viewer engagement.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Power BI, Excel</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="Netflix_Content_Trends.html">View Story →</a>
+</div>
+</a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+    <a class="block" href="SP500_Forecast_Analysis.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="S&P 500 market analysis dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/S&P500.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">S&P 500 Forecast Analysis</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Predicted market trends and analyzed financial indicators to support investment decisions and portfolio management strategies.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Prophet, PowerBI, Matplotlib, Sql, Python</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="SP500_Forecast_Analysis.html">View Story →</a>
+</div>
+</a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+    <a class="block" href="Olist_Sales_Forecast.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="Olist sales forecast dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/sales_forecast.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">Olist Brazil Sales Forecast</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Delivered accurate monthly sales predictions that optimized inventory planning and revenue forecasting.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Python, Pandas, NumPy, Matplotlib, Power BI</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="Olist_Sales_Forecast.html">View Story →</a>
+</div>
+</a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+   <a class="block" href="US_Superstore.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="US Superstore sales analysis dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/US_Superstore_Sales_Dashboard.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">US Superstore Sales Analysis</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Analyzed regional sales patterns and customer segments to drive strategic business decisions and optimize profitability.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Power BI, Excel, SQL, Data Visualization</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="US_Superstore.html">View Story →</a>
+</div>
+</a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+   <a class="block" href="Life_Expectancy_Analysis.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="Life expectancy analysis dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/Life_Expectancy.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">Life Expectancy Analysis</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Analyzing global health, economic, and social factors influencing life expectancy across countries.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Python, Pandas, NumPy, Matplotlib</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="Life_Expectancy_Analysis.html">View Story →</a>
+</div>
+</a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+   <a class="block" href="OCD_Patient_Analysis.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="OCD patient demographics analysis dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/OCD.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">OCD Patient Demographics Analysis</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Exploring demographic patterns and clinical severity indicators in OCD patients through comprehensive data analysis.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Python, Pandas, SQL, Excel</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="OCD_Patient_Analysis.html">View Story →</a>
+</div>
+</a>
+</div>
+
+<div class="bg-white/10 p-1 group transition-all duration-300 hover:bg-white/20 hover:-translate-y-2 relative paper-layer flex-shrink-0" style="background-color: rgba(255,255,255,0.05); scroll-snap-align: start; width: 320px;">
+   <a class="block" href="Spotify_Analysis.html">
+<div class="p-5">
+<div class="overflow-hidden mb-5 image-frame-inner">
+<img alt="Spotify audio features analysis dashboard" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="images/Spotify_Analysis.png"/>
+</div>
+<h3 class="font-serif text-2xl font-bold mb-2 text-white">Spotify Audio Features Analysis</h3>
+<p class="text-sm mb-4 text-white/70 font-light">Analyzing musical characteristics and listener preferences using Spotify track data to uncover patterns in music popularity.</p>
+<p class="text-xs mb-4 text-white/60 font-medium">Tools: Python, Pandas, NumPy, Matplotlib</p>
+<a class="font-semibold text-sm text-white group-hover:text-white transition-colors duration-300" href="Spotify_Analysis.html">View Story →</a>
+</div>
+</a>
+</div>
+</div>
+</div>
+<button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 hover:bg-white text-[var(--primary-red)] rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 z-10" id="scroll-prev" aria-label="Previous projects">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 hover:bg-white text-[var(--primary-red)] rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 z-10" id="scroll-next" aria-label="Next projects">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 relative overflow-hidden bg-[var(--cream-bg)]" id="skills">
+<div class="relative z-10 px-6 md:px-12 text-center">
+<div class="flex items-center justify-center mb-4">
+<span class="doodle-icon text-4xl mr-3" style="color: var(--primary-red);">build</span>
+<h2 class="font-serif text-5xl md:text-6xl text-[var(--dark-text)] font-bold">My <em class="italic">Toolkit</em></h2>
+</div>
+<p class="text-gray-500 mb-12">The tools I use to bring data to life.</p>
+<div class="max-w-4xl mx-auto space-y-12">
+<div class="text-center">
+<h3 class="font-semibold text-xl text-[var(--dark-text)] mb-6">Data &amp; Analytics</h3>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-2">
+<span class="doodle-icon mr-2 align-middle">database</span>SQL
+                        </div>
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-2">
+<span class="doodle-icon mr-2 align-middle">code</span>Python
+                        </div>
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-1">
+<span class="doodle-icon mr-2 align-middle">grid_on</span>Excel
+                        </div>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-semibold text-xl text-[var(--dark-text)] mb-6">Visualization</h3>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 shadow-lg">
+<span class="doodle-icon mr-2 align-middle text-white/80">monitoring</span>Tableau
+                        </div>
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 shadow-lg">
+<span class="doodle-icon mr-2 align-middle text-white/80">bar_chart</span>Power BI
+                        </div>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-semibold text-xl text-[var(--dark-text)] mb-6">Techniques</h3>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-1">
+<span class="doodle-icon mr-2 align-middle">trending_up</span>Forecasting
+                        </div>
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-2">
+<span class="doodle-icon mr-2 align-middle">speed</span>KPI Analysis
+                        </div>
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-1">
+<span class="doodle-icon mr-2 align-middle">timeline</span>Time Series
+                        </div>
+<div class="paper-layer py-3 px-6 transform transition-transform hover:-translate-y-1 hover:rotate-1">
+<span class="doodle-icon mr-2 align-middle">psychology_alt</span>Data Storytelling
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 text-center bg-white" id="resume">
+<div class="relative z-10 px-6 md:px-12">
+<span class="doodle-icon text-4xl mb-4">description</span>
+<h2 class="font-serif text-6xl md:text-7xl font-bold mb-4 text-[var(--dark-text)]">My <em class="italic text-[var(--primary-red)]">Resume</em></h2>
+<p class="max-w-xl mx-auto mb-10 text-gray-600 leading-relaxed">
+                        Download my complete resume or connect with me on LinkedIn for more details.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="inline-block red-accent-bg text-white font-semibold text-xl px-12 py-4 hover:bg-[var(--dark-text)] transition-all duration-300 transform hover:scale-105 rounded-sm shadow-lg" href="HarshitaBakshi_Resume.pdf" download>
+                            Download Resume
+                        </a>
+<a class="inline-block border-2 border-[var(--primary-red)] text-[var(--primary-red)] font-semibold text-xl px-12 py-4 hover:bg-[var(--primary-red)] hover:text-white transition-all duration-300 transform hover:scale-105 rounded-sm" href="https://linkedin.com/in/harshita-bakshi" target="_blank">
+                            View LinkedIn
+                        </a>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 text-center bg-[var(--cream-bg)]" id="contact">
+<div class="relative z-10 px-6 md:px-12">
+<span class="doodle-icon text-4xl mb-4">waving_hand</span>
+<h2 class="font-serif text-6xl md:text-7xl font-bold mb-4 text-[var(--dark-text)]">Let's <em class="italic text-[var(--primary-red)]">Collaborate</em></h2>
+<p class="max-w-xl mx-auto mb-10 text-gray-600 leading-relaxed">
+                        Have a data project or opportunity? I'd love to collaborate and bring your data story to life.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="inline-block red-accent-bg text-white font-semibold text-xl px-12 py-4 hover:bg-[var(--dark-text)] transition-all duration-300 transform hover:scale-105 rounded-sm shadow-lg" href="mailto:bakshiharshita918@gmail.com">
+                            Contact Me
+                        </a>
+</div>
+</div>
+</section>
+</main>
+<footer class="text-center py-8 bg-[var(--cream-bg)] border-t border-black/5">
+<p class="text-sm text-gray-500">© 2024 Harshita. Designed with <em class="italic">creativity</em></p>
+</footer>
+</div>
+<div class="fixed inset-0 bg-[var(--cream-bg)] z-[99] hidden flex-col items-center justify-center space-y-10" id="mobile-menu">
+<button class="absolute top-6 right-6" id="close-menu-btn">
+<span class="material-symbols-outlined text-5xl text-[var(--dark-text)]">close</span>
+</button>
+<a class="menu-item font-serif text-4xl text-[var(--dark-text)]" href="#about">About</a>
+<a class="menu-item font-serif text-4xl text-[var(--dark-text)]" href="#projects">Projects</a>
+<a class="menu-item font-serif text-4xl text-[var(--dark-text)]" href="#skills">Skills</a>
+<a class="menu-item font-serif text-4xl mt-8 red-accent-bg text-white px-8 py-3" href="#contact">Collaborate</a>
+</div>
+<script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuItems = document.querySelectorAll('.menu-item');
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        menuItems.forEach(item => {
+            item.addEventListener('click', toggleMenu);
+        });
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlEl = document.documentElement;
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlEl.classList.add('dark');
+            htmlEl.classList.remove('light');
+        } else {
+            htmlEl.classList.add('light');
+            htmlEl.classList.remove('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                htmlEl.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlEl.classList.remove('light');
+                htmlEl.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Project Cards Scroll Navigation
+        const scrollContainer = document.getElementById('projects-scroll-container');
+        const scrollWrapper = document.getElementById('projects-scroll-wrapper');
+        const prevBtn = document.getElementById('scroll-prev');
+        const nextBtn = document.getElementById('scroll-next');
+        const cards = scrollWrapper.querySelectorAll('.flex-shrink-0');
+        
+        let currentIndex = 0;
+        const cardWidth = 320;
+        const gap = 32;
+        const scrollAmount = cardWidth + gap;
+        
+        function updateButtons() {
+            const maxIndex = cards.length - 1;
+            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = currentIndex === maxIndex ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentIndex === maxIndex ? 'none' : 'auto';
+        }
+        
+        function scrollToCard(index) {
+            currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+            scrollContainer.scrollTo({
+                left: currentIndex * scrollAmount,
+                behavior: 'smooth'
+            });
+            updateButtons();
+        }
+        
+        prevBtn.addEventListener('click', () => scrollToCard(currentIndex - 1));
+        nextBtn.addEventListener('click', () => scrollToCard(currentIndex + 1));
+        
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollLeft = scrollContainer.scrollLeft;
+            const newIndex = Math.round(scrollLeft / scrollAmount);
+            if (newIndex !== currentIndex) {
+                currentIndex = newIndex;
+                updateButtons();
+            }
+        });
+        
+        updateButtons();
+    </script>
+</body>
+</html>
